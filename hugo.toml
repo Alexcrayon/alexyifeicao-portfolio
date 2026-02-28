@@ -2,7 +2,8 @@ baseURL = "https://alexcrayon.github.io/alexyifeicao-portfolio/"
 languageCode = "en-us"
 title = "Yifei | Portfolio"
 theme = "PaperMod"
-paginate = 10
+[pagination]
+    pagerSize = 10
 
 [params.author]
   name = "Alex"
