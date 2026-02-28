@@ -1,0 +1,56 @@
+{{ define "main" }}
+<div class="projects-container">
+  <h1 class="projects-title">Projects</h1>
+
+  {{ range .Pages.ByWeight }}
+  <article class="project-card">
+    <div class="project-header">
+      <h2>
+        {{ if .Params.siteUrl }}
+          <a href="{{ .Params.siteUrl }}" target="_blank">{{ .Title }}</a>
+        {{ else }}
+          {{ .Title }}
+        {{ end }}
+      </h2>
+      {{ with .Params.sourceType }}
+        <span class="badge badge-{{ . | urlize }}">{{ . }}</span>
+      {{ end }}
+    </div>
+
+    <!-- Thumbnail from page bundle -->
+    {{ $img := .Resources.GetMatch "cover.*" }}
+    {{ with $img }}
+    <div class="project-image">
+      <img src="{{ .RelPermalink }}" alt="{{ $.Title }} screenshot" loading="lazy">
+    </div>
+    {{ end }}
+
+    <!-- Short description -->
+    <h3 class="project-subtitle">{{ .Params.subtitle }}</h3>
+    <p class="project-description">{{ .Params.description }}</p>
+
+    <!-- Tech stack pills -->
+    {{ $colors := slice "#6366f1" "#ec4899" "#14b8a6" "#f59e0b" "#8b5cf6" "#06b6d4" "#ef4444" "#22c55e" "#3b82f6" "#e879f9" }}
+    {{ with .Params.tags }}
+    <div class="tech-stack">
+      {{ range $i, $tag := . }}
+        {{ $idx := mod (add (mul $i 3) (len $tag)) (len $colors) }}
+        {{ $color := index $colors $idx }}
+        <span class="pill" style="color: {{ $color }}; border-color: {{ $color }}; background: {{ $color }}20;">{{ $tag }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Action links -->
+    <div class="project-links">
+      {{ with .Params.siteUrl }}
+        <a href="{{ . }}" target="_blank" class="project-btn">Visit Site</a>
+      {{ end }}
+      {{ with .Params.githubUrl }}
+        <a href="{{ . }}" target="_blank" class="project-btn btn-outline">GitHub</a>
+      {{ end }}
+    </div>
+  </article>
+  {{ end }}
+</div>
+{{ end }}

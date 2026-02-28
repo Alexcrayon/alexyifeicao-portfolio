@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Unreal Engine 5 on Yifei | Portfolio</title>
+    <link>//localhost:1313/tags/unreal-engine-5/</link>
+    <description>Recent content in Unreal Engine 5 on Yifei | Portfolio</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <atom:link href="//localhost:1313/tags/unreal-engine-5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Barnacles Beers and Brawls</title>
+      <link>//localhost:1313/projects/bbb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/projects/bbb/</guid>
+      <description>A React/TypeScript application that generates randomized dungeon layouts using Binary Space Partitioning algorithms. Features corridor carving, room placement, and interactive visualization of the generation process.</description>
+    </item>
+  </channel>
+</rss>

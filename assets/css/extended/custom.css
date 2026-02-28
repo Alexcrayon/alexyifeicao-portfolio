@@ -1,0 +1,133 @@
+/* ── Projects Page ── */
+
+.projects-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.projects-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ── Card ── */
+
+.project-card {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--entry);
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Header: title + badge ── */
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.project-header a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.project-header a:hover {
+  text-decoration: underline;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+/* ── Image ── */
+
+.project-image {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ── Text ── */
+
+.project-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--secondary);
+  margin: 0.5rem 0;
+  font-weight: 400;
+}
+
+.project-description {
+  color: var(--secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* ── Tech Stack Pills ── */
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.pill {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-family: monospace;
+  background: transparent;
+  border: 1.5px solid;
+}
+
+/* ── Action Links ── */
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-btn {
+  display: inline-block;
+  padding: 0.45rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  transition: background 0.2s, color 0.2s;
+}
+
+.project-btn:hover {
+  background: var(--primary);
+  color: var(--theme);
+}

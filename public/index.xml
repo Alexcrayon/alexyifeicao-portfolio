@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Yifei | Portfolio</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on Yifei | Portfolio</description>
+    <generator>Hugo -- 0.157.0</generator>
+    <language>en-us</language>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Procedural Dungeon Generator</title>
+      <link>//localhost:1313/projects/dungeon-generator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/projects/dungeon-generator/</guid>
+      <description>A React/TypeScript application that generates randomized dungeon layouts using Binary Space Partitioning algorithms. Features corridor carving, room placement, and interactive visualization of the generation process.</description>
+    </item>
+    <item>
+      <title>Barnacles Beers and Brawls</title>
+      <link>//localhost:1313/projects/bbb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/projects/bbb/</guid>
+      <description>A capstone game project for class of 2024 at University of Utah.</description>
+    </item>
+    <item>
+      <title>Image Feature Matching and Stitching</title>
+      <link>//localhost:1313/projects/cv_image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/projects/cv_image/</guid>
+      <description>Implements Harris corner detection, feature matching, image warpping and image stitching</description>
+    </item>
+    <item>
+      <title>Gravisite</title>
+      <link>//localhost:1313/projects/gravisite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/projects/gravisite/</guid>
+      <description>A semester long team project for traditional game dev course at the University of Utah.</description>
+    </item>
+  </channel>
+</rss>

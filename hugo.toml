@@ -1,0 +1,59 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Yifei | Portfolio"
+theme = "PaperMod"
+paginate = 10
+
+[params.author]
+  name = "Alex"
+[params]
+  mainSections = ["blog"] 
+  defaultTheme = "dark"           # dark, light, or auto
+  showReadingTime = false
+  showShareButtons = false
+  showPostNavLinks = true
+  showBreadCrumbs = true
+  showToc = false
+
+  [params.homeInfoParams]
+    Title = "Hi, I'm Yifei"
+    Content = "MSCS @ Northeastern · Computer Graphics · Game Dev"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/YOUR_USERNAME"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/YOUR_USERNAME"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:your@email.com"
+
+[menu]
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
