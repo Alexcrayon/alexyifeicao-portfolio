@@ -22,15 +22,15 @@ theme = "PaperMod"
 
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/YOUR_USERNAME"
+    url = "https://github.com/Alexcrayon"
 
   [[params.socialIcons]]
     name = "linkedin"
-    url = "https://linkedin.com/in/YOUR_USERNAME"
+    url = "https://www.linkedin.com/in/yifei-cao-32b15328a/"
 
   [[params.socialIcons]]
     name = "email"
-    url = "mailto:your@email.com"
+    url = "caoyifei.sz@gmail.com"
 
 [menu]
   [[menu.main]]
