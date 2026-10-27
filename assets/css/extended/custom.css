@@ -131,3 +131,198 @@
   background: var(--primary);
   color: var(--theme);
 }
+
+/* ── Photography Page ── */
+
+/* Give the collage more room than the 720px text column */
+.main:has(.collage) {
+  max-width: calc(1200px + var(--gap) * 2);
+}
+
+.collage-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.collage-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.collage-intro {
+  color: var(--secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Layout Switch ── */
+
+.layout-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.layout-toggle[hidden] {
+  display: none;
+}
+
+.layout-toggle button {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  background: transparent;
+  color: var(--secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.layout-toggle button + button {
+  border-left: 1px solid var(--border);
+}
+
+.layout-toggle button[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--theme);
+}
+
+/* ── Collage: justified rows ── */
+/* Each photo grows in proportion to its aspect ratio (--ar),
+   so every row fills the width with photos of equal height */
+
+.collage {
+  --row-height: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Soaks up the spare space so the last, partly filled row doesn't stretch */
+.collage::after {
+  content: "";
+  flex-grow: 999;
+}
+
+.collage-row {
+  display: contents;
+}
+
+.collage-item {
+  flex: var(--ar) 1 calc(var(--ar) * var(--row-height));
+  min-width: 0;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.collage-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.collage-item:hover img {
+  transform: scale(1.03);
+}
+
+/* ── Collage: diamond ── */
+/* collage-layout.js groups the photos into centered rows whose widths
+   (--row-width) step up to the middle and back down */
+
+@media (min-width: 601px) {
+  .collage[data-layout="diamond"] {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .collage[data-layout="diamond"]::after {
+    display: none;
+  }
+
+  .collage[data-layout="diamond"] .collage-row {
+    display: flex;
+    gap: 8px;
+    width: var(--row-width);
+  }
+
+  .collage[data-layout="diamond"] .collage-item {
+    flex: var(--ar) 1 0;
+  }
+}
+
+/* Phones: a diamond would make the photos tiny, so always show rows */
+@media (max-width: 600px) {
+  .collage {
+    --row-height: 140px;
+  }
+
+  .layout-toggle {
+    display: none;
+  }
+}
+
+/* ── Lightbox ── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.lightbox button {
+  position: absolute;
+  padding: 1rem;
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.lightbox button:hover {
+  opacity: 1;
+}
+
+.lightbox-close {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-prev {
+  left: 0.5rem;
+}
+
+.lightbox-next {
+  right: 0.5rem;
+}

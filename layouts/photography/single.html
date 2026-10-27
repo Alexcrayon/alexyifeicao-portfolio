@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="collage-container">
+  <div class="collage-header">
+    <h1 class="collage-title">{{ .Title }}</h1>
+    <!-- Shown by collage-layout.js; without JS the page stays in justified rows -->
+    <div class="layout-toggle" role="group" aria-label="Collage layout" hidden>
+      <button type="button" data-layout="diamond">Diamond</button>
+      <button type="button" data-layout="justified">Rows</button>
+    </div>
+  </div>
+  {{ with .Content }}
+  <div class="collage-intro">{{ . }}</div>
+  {{ end }}
+
+  <!-- Every image in the page bundle, in filename order; --ar is its aspect ratio -->
+  <div class="collage" data-layout="justified">
+    {{ range $i, $photo := .Resources.ByType "image" }}
+      {{ $thumb := $photo }}
+      {{ if gt $photo.Width 800 }}
+        {{ $thumb = $photo.Resize "800x webp q80" }}
+      {{ end }}
+
+      {{ $full := $photo }}
+      {{ if or (gt $photo.Width 2400) (gt $photo.Height 2400) }}
+        {{ $full = $photo.Fit "2400x2400 webp q85" }}
+      {{ end }}
+
+      <a class="collage-item" href="{{ $full.RelPermalink }}" style="--ar: {{ div (float $photo.Width) $photo.Height }}">
+        <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+          alt="Photo {{ add $i 1 }}" loading="lazy" decoding="async">
+      </a>
+    {{ end }}
+  </div>
+</div>
+
+{{ $layout := resources.Get "js/collage-layout.js" | minify | fingerprint }}
+<script src="{{ $layout.RelPermalink }}" integrity="{{ $layout.Data.Integrity }}"></script>
+{{ $js := resources.Get "js/photo-lightbox.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}
